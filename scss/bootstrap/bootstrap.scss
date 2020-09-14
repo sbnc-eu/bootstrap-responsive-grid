@@ -11,17 +11,17 @@
 
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
-@import "../variables";
+@import "../variables"; // An original file from bootstrap-responsive-grid
 @import "~bootstrap/scss/mixins";
-@import "mixins/grid-framework";
-@import "mixins/grid";
-@import "../mixins";
+@import "mixins/grid-framework"; // A modified Bootstrap file, overriding some mixins
+@import "mixins/grid"; // A modified Bootstrap file, overriding some mixins
+@import "../mixins"; // An original file from bootstrap-responsive-grid
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
 @import "~bootstrap/scss/images";
 @import "~bootstrap/scss/code";
-@import "grid";
+@import "grid"; // A modified Bootstrap file, replacing "~bootstrap/scss/grid"
 @import "~bootstrap/scss/tables";
 @import "~bootstrap/scss/forms";
 @import "~bootstrap/scss/buttons";

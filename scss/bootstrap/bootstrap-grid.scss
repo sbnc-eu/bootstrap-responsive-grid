@@ -22,16 +22,16 @@ html {
 
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
-@import "../variables";
+@import "../variables"; // An original file from bootstrap-responsive-grid
 
 @import "~bootstrap/scss/mixins/breakpoints";
 @import "~bootstrap/scss/mixins/grid-framework";
 @import "~bootstrap/scss/mixins/grid";
-@import "mixins/grid-framework";
-@import "mixins/grid";
-@import "../mixins";
+@import "mixins/grid-framework"; // A modified Bootstrap file, overriding some mixins
+@import "mixins/grid"; // A modified Bootstrap file, overriding some mixins
+@import "../mixins"; // An original file from bootstrap-responsive-grid
 
-@import "grid";
+@import "grid"; // A modified Bootstrap file, replacing "~bootstrap/scss/grid"
 @import "~bootstrap/scss/utilities/display";
 @import "~bootstrap/scss/utilities/flex";
 @import "~bootstrap/scss/utilities/spacing";
