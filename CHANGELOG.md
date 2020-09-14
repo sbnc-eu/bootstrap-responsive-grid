@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2020-09-15
+### Changed
+- Recommended installation method changed to use the `bootstrap-responsive-grid` npmjs.com package
+
 ## [1.0.0] - 2020-09-15
 ### Added
 - Ability to build `css` files and minify them using npm scripts just like in Bootstrap

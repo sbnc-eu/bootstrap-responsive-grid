@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-responsive-grid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Define different gutters and container margins for each breakpoint when using Bootstrap.",
   "repository": {
     "type": "git",

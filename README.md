@@ -8,7 +8,7 @@ This package can be used as a wrapper around [Bootstrap 4](https://github.com/tw
 ### Installation
 Install using npm, e.g.: 
 
-`npm install --save-dev https://github.com/BenceSzalai/bootstrap-responsive-grid.git`
+`npm install --save bootstrap-responsive-grid`
 
 ### Setup
 You can use `scss/bootstrap.scss` or `scss/bootstrap-grid.scss` of this package the same way as you would use the same files provided by Bootstrap.
