@@ -1,5 +1,5 @@
 # Bootstrap Responsive Grid
-A package that allows you to define different gutters and container margins for each breakpoint.
+Define different gutters and container margins for each breakpoint when using Bootstrap.
 
 This package can be used as a wrapper around [Bootstrap 4](https://github.com/twbs/bootstrap) and provides variables to customise the gutter widths and the container margins separately for each break-points and independently of each other.
 
