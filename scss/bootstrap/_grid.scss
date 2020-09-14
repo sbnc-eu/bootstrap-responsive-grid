@@ -1,3 +1,7 @@
+// Based on Bootstrap scss/_grid.scss
+// This file replaces the original file, so it need to contain both the
+// changed and unchanged parts.
+
 // Container widths
 //
 // Set the container width, and override it for fixed navbars in media queries.
@@ -6,19 +10,31 @@
   // Single container class with breakpoint max-widths
   .container,
   // 100% wide container at all breakpoints
-  .container-fluid {
+  .container-fluid,
+  // Breakpoint dependent fluid containers
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl
+  {
     @include make-container();
+    padding-right: map-get($grid-container-margins, 'xs');
+    padding-left: map-get($grid-container-margins, 'xs');
   }
 
   // Responsive containers that are 100% wide until a breakpoint
   @each $breakpoint, $container-max-width in $container-max-widths {
-    .container-#{$breakpoint} {
-      @extend .container-fluid;
-    }
+    $margin_breakpoint: breakpoint-effective( $breakpoint, $grid-container-margins );
 
     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
       %responsive-container-#{$breakpoint} {
         max-width: $container-max-width;
+        padding-right: map-get($grid-container-margins, $margin_breakpoint);
+        padding-left: map-get($grid-container-margins, $margin_breakpoint);
+      }
+      .container-fluid {
+        padding-right: map-get($grid-container-margins, $margin_breakpoint);
+        padding-left: map-get($grid-container-margins, $margin_breakpoint);
       }
 
       // Extend each breakpoint which is smaller or equal to the current breakpoint
@@ -35,6 +51,12 @@
             $extend-breakpoint: false;
           }
         }
+        @else {
+          .container#{breakpoint-infix($name, $grid-breakpoints)} {
+            padding-right: map-get($grid-container-margins, $margin_breakpoint);
+            padding-left: map-get($grid-container-margins, $margin_breakpoint);
+          }
+        }
       }
     }
   }
@@ -48,6 +70,18 @@
 @if $enable-grid-classes {
   .row {
     @include make-row();
+    margin-right: - map-get($grid-container-margins, 'xs');
+    margin-left: - map-get($grid-container-margins, 'xs');
+  }
+
+  @each $breakpoint, $width in $grid-breakpoints {
+    $margin_breakpoint: breakpoint-effective($breakpoint, $grid-gutter-widths);
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      .row {
+        margin-right: - map-get($grid-gutter-widths, $margin_breakpoint) / 2;
+        margin-left: - map-get($grid-gutter-widths, $margin_breakpoint) / 2;
+      }
+    }
   }
 
   // Remove the negative margin from default .row, then the horizontal padding

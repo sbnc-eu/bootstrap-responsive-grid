@@ -1,19 +1,17 @@
-// Framework grid generation
-//
-// Used only by Bootstrap to generate the correct number of grid classes given
-// any value of `$grid-columns`.
+// Based on Bootstrap scss/mixins/_grid-framework.scss
+// These mixins override the default Bootstrap mixins of matching name.
+// Other mixins from the same file are still needed, so the original file
+// is required.
 
 @mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
   // Common properties for all breakpoints
   %grid-column {
     position: relative;
     width: 100%;
-    padding-right: $gutter / 2;
-    padding-left: $gutter / 2;
   }
 
   @each $breakpoint in map-keys($breakpoints) {
-    $infix: breakpoint-infix($breakpoint, $breakpoints);
+    $infix: breakpoint-infix($breakpoint, $breakpoints); //null, -sm, -md, etc.
 
     @if $columns > 0 {
       // Allow columns to stretch full width below their breakpoints
@@ -30,29 +28,43 @@
     }
 
     @include media-breakpoint-up($breakpoint, $breakpoints) {
+      $gutter_breakpoint: breakpoint-effective( $breakpoint, $grid-gutter-widths );
+
+      .col,
+      .col-auto {
+        padding-right: map-get($grid-gutter-widths, $gutter_breakpoint) / 2;
+        padding-left: map-get($grid-gutter-widths, $gutter_breakpoint) / 2;
+      }
+
       // Provide basic `.col-{bp}` classes for equal-width flexbox columns
       .col#{$infix} {
         flex-basis: 0;
         flex-grow: 1;
         max-width: 100%;
+        padding-right: map-get($grid-gutter-widths, $gutter_breakpoint) / 2;
+        padding-left: map-get($grid-gutter-widths, $gutter_breakpoint) / 2;
       }
 
       @if $grid-row-columns > 0 {
         @for $i from 1 through $grid-row-columns {
           .row-cols#{$infix}-#{$i} {
-            @include row-cols($i);
+            @include row-cols($i); // sets the max with and flex size
           }
         }
       }
 
       .col#{$infix}-auto {
-        @include make-col-auto();
+        @include make-col-auto(); // sets width and flex size to auto
+        padding-right: map-get($grid-gutter-widths, $gutter_breakpoint) / 2;
+        padding-left: map-get($grid-gutter-widths, $gutter_breakpoint) / 2;
       }
 
       @if $columns > 0 {
         @for $i from 1 through $columns {
           .col#{$infix}-#{$i} {
-            @include make-col($i, $columns);
+            @include make-col($i, $columns); // sets the max with and flex size
+            padding-right: map-get($grid-gutter-widths, $gutter_breakpoint) / 2;
+            padding-left: map-get($grid-gutter-widths, $gutter_breakpoint) / 2;
           }
         }
       }
