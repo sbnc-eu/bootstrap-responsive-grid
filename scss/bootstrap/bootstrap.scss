@@ -12,7 +12,7 @@
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "../variables"; // An original file from bootstrap-responsive-grid
-@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/mixins.scss"; // .scss to distinguish from the folder
 @import "mixins/grid-framework"; // A modified Bootstrap file, overriding some mixins
 @import "mixins/grid"; // A modified Bootstrap file, overriding some mixins
 @import "../mixins"; // An original file from bootstrap-responsive-grid
@@ -48,5 +48,5 @@
 @import "~bootstrap/scss/popover";
 @import "~bootstrap/scss/carousel";
 @import "~bootstrap/scss/spinners";
-@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/utilities.scss"; // .scss to distinguish from the folder
 @import "~bootstrap/scss/print";
