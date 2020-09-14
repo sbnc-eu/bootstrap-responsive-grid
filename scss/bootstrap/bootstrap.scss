@@ -4,16 +4,24 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+/*
+ * Modifications made to the original Bootstrap file (scss/bootstrap.scss)
+ * are done by Bence Szalai (bence@sbnc.eu) in 2020.
+ */
 
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
+@import "../variables";
 @import "~bootstrap/scss/mixins";
+@import "mixins/grid-framework";
+@import "mixins/grid";
+@import "../mixins";
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
 @import "~bootstrap/scss/images";
 @import "~bootstrap/scss/code";
-@import "~bootstrap/scss/grid";
+@import "grid";
 @import "~bootstrap/scss/tables";
 @import "~bootstrap/scss/forms";
 @import "~bootstrap/scss/buttons";
