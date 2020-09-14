@@ -1,0 +1,22 @@
+{
+  "name": "bootstrap-responsive-grid",
+  "version": "1.0.0",
+  "description": "A package that allows you to define different gutters and container margins for each breakpoint.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenceSzalai/bootstrap-responsive-grid.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "responsive",
+    "grid",
+    "css",
+    "scss"
+  ],
+  "author": "Bence Szalai (bence@sbnc.eu)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BenceSzalai/bootstrap-responsive-grid/issues"
+  },
+  "homepage": "https://github.com/BenceSzalai/bootstrap-responsive-grid#readme"
+}
