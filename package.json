@@ -24,9 +24,14 @@
     "bootstrap": "^4.0.0"
   },
   "devDependencies": {
-    "bootstrap": "^4.5.2"
+    "bootstrap": "^4.5.2",
+    "node-sass": "^4.14.1",
+    "node-sass-tilde-importer": "^1.0.2",
+    "clean-css-cli": "^4.3.0"
   },
   "scripts": {
-    "test": "echo \"No test specified\""
+    "test": "echo \"No test specified\"",
+    "css-compile-main": "node-sass --importer=node_modules/node-sass-tilde-importer --output-style expanded --source-map true --source-map-contents true --precision 6 scss/bootstrap -o dist/css/",
+    "css-minify-main": "cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output dist/css/bootstrap.min.css dist/css/bootstrap.css && cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output dist/css/bootstrap-grid.min.css dist/css/bootstrap-grid.css"
   }
 }
