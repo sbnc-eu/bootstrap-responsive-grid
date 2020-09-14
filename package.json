@@ -18,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/BenceSzalai/bootstrap-responsive-grid/issues"
   },
-  "homepage": "https://github.com/BenceSzalai/bootstrap-responsive-grid#readme"
+  "homepage": "https://github.com/BenceSzalai/bootstrap-responsive-grid#readme",
+  "sass": "scss/bootstrap.scss",
+  "peerDependencies": {
+    "bootstrap": "^4.0.0"
+  },
+  "devDependencies": {
+    "bootstrap": "^4.5.2"
+  }
 }
