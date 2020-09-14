@@ -1,0 +1,22 @@
+// Define these maps in your own scss to customise the default gutters
+// and container margins.
+
+$grid-gutter-widths: (
+  xs: 30px,
+  sm: 30px,
+  md: 30px,
+  lg: 30px,
+  xl: 30px
+) !default;
+
+$grid-container-margins: (
+  xs: 15px,
+  sm: 15px,
+  md: 15px,
+  lg: 15px,
+  xl: 15px
+) !default;
+
+// You may also want to customise the default Bootstrap maps, such as
+// $container-max-widths and $grid-breakpoints.
+// See `node_modules/bootstrap/scss/_variables.scss` for more details.
