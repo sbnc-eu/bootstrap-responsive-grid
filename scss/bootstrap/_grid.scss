@@ -67,11 +67,17 @@
   @each $breakpoint, $width in $grid-breakpoints {
     $margin_breakpoint: breakpoint-effective($breakpoint, $grid-gutter-widths);
     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      $gutter_compensation: map-get($grid-gutter-widths, $margin_breakpoint) / 2;
       .row {
-        margin-right: - map-get($grid-gutter-widths, $margin_breakpoint) / 2;
-        margin-left: - map-get($grid-gutter-widths, $margin_breakpoint) / 2;
+        margin-right: - $gutter_compensation;
+        margin-left: - $gutter_compensation;
       }
     }
+  }
+
+  .row-fluid {
+    margin-right: - map-get($grid-container-margins, 'xs');
+    margin-left: - map-get($grid-container-margins, 'xs');
   }
 
   // Remove the negative margin from default .row, then the horizontal padding
