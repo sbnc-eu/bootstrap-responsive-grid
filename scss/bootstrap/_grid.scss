@@ -32,10 +32,6 @@
         padding-right: map-get($grid-container-margins, $margin_breakpoint);
         padding-left: map-get($grid-container-margins, $margin_breakpoint);
       }
-      .container-fluid {
-        padding-right: map-get($grid-container-margins, $margin_breakpoint);
-        padding-left: map-get($grid-container-margins, $margin_breakpoint);
-      }
 
       // Extend each breakpoint which is smaller or equal to the current breakpoint
       $extend-breakpoint: true;
@@ -49,12 +45,6 @@
           // Once the current breakpoint is reached, stop extending
           @if ($breakpoint == $name) {
             $extend-breakpoint: false;
-          }
-        }
-        @else {
-          .container#{breakpoint-infix($name, $grid-breakpoints)} {
-            padding-right: map-get($grid-container-margins, $margin_breakpoint);
-            padding-left: map-get($grid-container-margins, $margin_breakpoint);
           }
         }
       }
