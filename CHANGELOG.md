@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2020-09-16
+### Added
+- New `row-fluid` class to handle special cases with fluid containers. (See readme for description.)
+
+### Fixed
+- Side margins misbehaved in certain cases.
+
 ## [1.0.2] - 2020-09-15
 ### Fixed
 - Files were included in the npm package that are not needed
@@ -25,7 +32,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Basic functional package
 
-[Unreleased]: https://github.com/BenceSzalai/vue-components-ide-helper/compare/1.0.2...HEAD
+[Unreleased]: https://github.com/BenceSzalai/vue-components-ide-helper/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/BenceSzalai/vue-components-ide-helper/compare/1.0.2...1.1.0
 [1.0.2]: https://github.com/BenceSzalai/vue-components-ide-helper/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/BenceSzalai/vue-components-ide-helper/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/BenceSzalai/vue-components-ide-helper/compare/0.9.0...1.0.0
