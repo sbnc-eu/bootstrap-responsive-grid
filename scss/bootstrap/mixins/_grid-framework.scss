@@ -61,6 +61,7 @@
 
       @if $columns > 0 {
         @for $i from 1 through $columns {
+          .col-#{$i},
           .col#{$infix}-#{$i} {
             @include make-col($i, $columns); // sets the max with and flex size
             padding-right: map-get($grid-gutter-widths, $gutter_breakpoint) / 2;
