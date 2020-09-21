@@ -67,7 +67,6 @@
         $previous-breakpoints: breakpoints-up-to($breakpoint);
         @each $previous-breakpoint in map-keys($previous-breakpoints) {
           $infix2: breakpoint-infix($previous-breakpoint, $breakpoints); //null, -sm, -md, etc.
-          @debug $infix2;
           @for $i from 1 through $columns {
             .col#{$infix2}-#{$i} {
               @extend %grid-column#{$infix};
