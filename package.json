@@ -13,7 +13,11 @@
     "css",
     "scss"
   ],
-  "author": "Bence Szalai (bence@sbnc.eu)",
+  "author": {
+    "name" : "Bence Szalai",
+    "email" : "bence@sbnc.eu",
+    "url" : "https://sbnc.eu/"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/BenceSzalai/bootstrap-responsive-grid/issues"
