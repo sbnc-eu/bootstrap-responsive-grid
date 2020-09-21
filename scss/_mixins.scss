@@ -25,3 +25,13 @@
   $n: index(map-keys($examined-breakpoints), $name);
   @return if($n != null, $name, breakpoint-effective( breakpoint-prev($name, $breakpoints), $examined-breakpoints, $breakpoints ) );
 }
+
+@function breakpoints-up-to($name, $breakpoints: $grid-breakpoints) {
+  $new-map: ();
+  $prev: breakpoint-prev($name, $breakpoints);
+  @while $prev != null {
+    $new-map: map-merge(( $prev: map-get($breakpoints, $prev) ), $new-map);
+    $prev: breakpoint-prev($prev, $breakpoints);
+  }
+  @return map-merge($new-map, ( $name: map-get($breakpoints, $name) ));
+}

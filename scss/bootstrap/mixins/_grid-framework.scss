@@ -60,12 +60,24 @@
       }
 
       @if $columns > 0 {
+        %grid-column#{$infix} {
+          padding-right: map-get($grid-gutter-widths, $gutter_breakpoint) / 2;
+          padding-left: map-get($grid-gutter-widths, $gutter_breakpoint) / 2;
+        }
+        $previous-breakpoints: breakpoints-up-to($breakpoint);
+        @each $previous-breakpoint in map-keys($previous-breakpoints) {
+          $infix2: breakpoint-infix($previous-breakpoint, $breakpoints); //null, -sm, -md, etc.
+          @debug $infix2;
+          @for $i from 1 through $columns {
+            .col#{$infix2}-#{$i} {
+              @extend %grid-column#{$infix};
+            }
+          }
+        }
+
         @for $i from 1 through $columns {
-          .col-#{$i},
           .col#{$infix}-#{$i} {
             @include make-col($i, $columns); // sets the max with and flex size
-            padding-right: map-get($grid-gutter-widths, $gutter_breakpoint) / 2;
-            padding-left: map-get($grid-gutter-widths, $gutter_breakpoint) / 2;
           }
         }
       }
