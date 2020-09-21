@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.3] - 2020-09-21
+### Fix
+- Column widths were wrong when multiple different width col-* classes were applied. For example `col-12 col-sm-6 col-lg-4` may rendered a column as 12 wide even above `sm` breakpoint.
+
 ## [1.1.2] - 2020-09-17
 ### Fix
 - Wrong links in Changelog
@@ -40,7 +44,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Basic functional package
 
-[Unreleased]: https://github.com/BenceSzalai/bootstrap-responsive-grid/compare/1.1.2...HEAD
+[Unreleased]: https://github.com/BenceSzalai/bootstrap-responsive-grid/compare/1.1.3...HEAD
+[1.1.3]: https://github.com/BenceSzalai/bootstrap-responsive-grid/compare/1.1.2...1.1.3
 [1.1.2]: https://github.com/BenceSzalai/bootstrap-responsive-grid/compare/1.1.1...1.1.2
 [1.1.1]: https://github.com/BenceSzalai/bootstrap-responsive-grid/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/BenceSzalai/bootstrap-responsive-grid/compare/1.0.2...1.1.0
