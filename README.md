@@ -11,36 +11,75 @@ Install using npm, e.g.:
 `npm install --save bootstrap-responsive-grid`
 
 ### Setup
-You can use `scss/bootstrap.scss` or `scss/bootstrap-grid.scss` of this package the same way as you would use the same files provided by Bootstrap.
+You can use `scss/bootstrap.scss` or `scss/bootstrap-grid.scss` from this package the same way as you would use them from Bootstrap.
 
-In your main scss file instead of `@import "~bootstrap";` you can use `@import "~bootstrap-responsive-grid";`.
+#### Simple Bootstrap
+In your main scss file instead of:
+`@import "~bootstrap";`
 
-If you are using only the Bootstrap grid, instead of `@import "~bootstrap/scss/bootstrap-grid";` you can use `@import "~bootstrap-responsive-grid/scss/bootstrap-grid";`.
+you can use:
+`@import "~bootstrap-responsive-grid";`
 
-If you would like more granular control over the specific Bootstrap components, you can make a copy of `scss/bootstrap/bootstrap.scss`, edit each `@import` that does not start with `"~bootstrap/...` to start with `"~bootstrap-responsive-grid/scss/bootstrap/...` and remove any lines corresponding to components you don't need. E.g.:
+#### Bootstrap Grid
+
+If you are using only the Bootstrap grid, instead of:
+`@import "~bootstrap/scss/bootstrap-grid";`
+
+you can use:
+`@import "~bootstrap-responsive-grid/scss/bootstrap-grid";`
+
+#### Bootstrap by Components
+If you would like more granular control over the specific Bootstrap components, you can make a copy of `scss/bootstrap/bootstrap.scss` from this package into your project. To make it work, you need to change the path of the imports from this package, because they need different path when used outside the package. 
+
+So instead of this (`bootstrap.scss` shipped in this package):
 ```scss
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
-@import "~bootstrap-responsive-grid/scss/variables";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap-responsive-grid/scss/bootstrap/mixins/grid-framework";
-@import "~bootstrap-responsive-grid/scss/bootstrap/mixins/grid";
-@import "~bootstrap-responsive-grid/scss/mixins";
+@import "../variables"; // An original file from bootstrap-responsive-grid
+@import "~bootstrap/scss/mixins.scss"; // .scss to distinguish from the folder
+@import "mixins/grid-framework"; // A modified Bootstrap file, overriding some mixins
+@import "mixins/grid"; // A modified Bootstrap file, overriding some mixins
+@import "../mixins"; // An original file from bootstrap-responsive-grid
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
 @import "~bootstrap/scss/images";
 @import "~bootstrap/scss/code";
-@import "~bootstrap-responsive-grid/scss/bootstrap/grid";
+@import "grid"; // A modified Bootstrap file, replacing "~bootstrap/scss/grid"
 @import "~bootstrap/scss/tables";
 @import "~bootstrap/scss/forms";
 @import "~bootstrap/scss/buttons";
-...
+// etc.
 ```
+
+You should have this modified copy in your project:
+```scss
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap-responsive-grid/scss/variables"; // Changed path
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap-responsive-grid/scss/bootstrap/mixins/grid-framework"; // Changed path
+@import "~bootstrap-responsive-grid/scss/bootstrap/mixins/grid"; // Changed path
+@import "~bootstrap-responsive-grid/scss/mixins"; // Changed path
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/code";
+@import "~bootstrap-responsive-grid/scss/bootstrap/grid"; // Changed path
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+// etc.
+```
+
+Now you can remove or comment out any modules not needed.
+
+**Note:** The order of the imports are important because of dependencies and overrides, so don't change them unless you know what you are doing!
 
 ### Configuration
 
-Similar to Bootstrap, the package uses SCSS variables as the entry point for your settings. The default configuration matches the out of the box default behaviour of Bootstrap: 30px for gutters and 15px for container margins on all resolutions.
+Similar to Bootstrap, the package uses SCSS variables as the entry point for your settings. The default configuration matches the out-of-the-box default behaviour of Bootstrap: 30px for gutters and 15px for container margins on all resolutions.
 
 To customise these, add the following SCSS map variables before importing the package files:
 ```scss
@@ -63,7 +102,7 @@ $grid-container-margins: (
 
 The `xs` part is mandatory in both maps. The other breakpoints from `sm` and above are optional. Any breakpoint not provided in the map will use the same value from the breakpoint below.
 
-To take full control of the Bootstrap grid system you may also want to customise the `$container-max-widths` and `$grid-breakpoints` default Bootstrap map variables. For details see `scss/_variables.scss` in Bootstrap.
+To take full control of the Bootstrap grid system you may also want to customise the `$container-max-widths` and `$grid-breakpoints` default Bootstrap map variables. For details see `scss/_variables.scss` in the original Bootstrap package.
 
 ## FAQ
 
@@ -75,15 +114,15 @@ To take full control of the Bootstrap grid system you may also want to customise
 
 ## Side effects
 
-**Note: This section only applies if your `$grid-gutter-widths` are not exactly half of the corresponding `$grid-container-margins`. Otherwise everything works the same as in standard Bootstrap!**
+**Note: This section only applies if your `$grid-gutter-widths` are not exactly half of the corresponding `$grid-container-margins`. Otherwise, everything works the same as in standard Bootstrap!**
 
 Normally in Bootstrap the two value always balance each other. By default, the gutter is 30px, and there is a 15-15px padding on each side of the containers. Because of this, the rows always reach the full width of their containers, and the space available inside a 12 wide column is the same as the space available inside the container.
 
 This means a row in a fluid container always spans the full width of the viewport, and rows together with fluid containers can be well utilised to set full width background colors or images.
 
-However when the container margins do not exactly match the half ot the gutter widths, rows inside containers does not span the full inner width of the containers. There is no trivial way around it, since the negative margins of the rows MUST match the column paddings to keep the layout working.
+However, when the container margins do not exactly match the half of the gutter widths, rows inside containers do not span the full inner width of the containers. There is no trivial way around it since the negative margins of the rows MUST match the column paddings to keep the layout working.
 
-This is not really an issue in most cases, as the width of a row is not important from a visual perspective in most cases. However when a row is used to paint the background of a section this can be an issue.
+This is not really an issue in most cases, as the width of a row is not important from a visual perspective in most cases. However, when a row is used to paint the background of a section this can be an issue.
 
 For this reason an additional class is introduced: `row-fluid`. It can be used as a drop in replacement for `row` class. A `<div class=row-fluid">` inside a container always spans the full inner width of the container. The downside however that columns would not align with the rest of the layout inside such a row.
 
