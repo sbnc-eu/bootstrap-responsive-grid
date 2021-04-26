@@ -14,9 +14,9 @@
     "scss"
   ],
   "author": {
-    "name" : "Bence Szalai",
-    "email" : "bence@sbnc.eu",
-    "url" : "https://sbnc.eu/"
+    "name": "Bence Szalai",
+    "email": "bence@sbnc.eu",
+    "url": "https://sbnc.eu/"
   },
   "license": "MIT",
   "bugs": {
@@ -29,9 +29,9 @@
   },
   "devDependencies": {
     "bootstrap": "^4.5.2",
+    "clean-css-cli": "^4.3.0",
     "node-sass": "^4.14.1",
-    "node-sass-tilde-importer": "^1.0.2",
-    "clean-css-cli": "^4.3.0"
+    "node-sass-tilde-importer": "^1.0.2"
   },
   "scripts": {
     "test": "echo \"No test specified\"",
